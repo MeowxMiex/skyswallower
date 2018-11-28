@@ -1,0 +1,14 @@
+{% extends 'webscraper/base.html' %}
+
+{% block content %}
+<h1>{{ author.author_name }}</h1>
+<!-- <form action="{% url 'webscraper:update' author.id %}" method="post">
+    {% csrf_token %}
+    <input type="submit" value="Update">
+</form> -->
+<ul>
+    {% for publication in author.publication_set.all %}
+    <li>{{ publication.pub_name }}</li>
+    {% endfor %}
+</ul>
+{% endblock %}

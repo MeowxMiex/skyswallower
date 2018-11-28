@@ -1,0 +1,89 @@
+{% extends 'webscraper/base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container">
+
+    <!-- Page Heading -->
+    <h1 class="my-4"> Authors
+        <small>(SAR)</small>
+    </h1>
+
+    {% if author_list %}
+    <div class="row">
+        {% for author in author_list %}
+        <div class="col-lg-3 col-md-4 col-sm-6 portfolio-item">
+            <div class="card h-100">
+                <a href="#"><img class="card-img-top" src="{% static 'webscraper/images/author' %}/{{ author.author_name }}.jpg"
+                        alt=""></a>
+                <div class="card-body">
+                    <h4 class="card-title">
+                        <a href="{% url 'webscraper:detail' author.id %}">{{ author.author_name }}</a>
+                    </h4>
+                    <p class="card-text">Publications : {{ author.publication_set.count }}</p>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    {% endif %}
+
+    <!-- Page Heading -->
+    <h1 class="my-4"> Sources
+        <small>(SAR)</small>
+    </h1>
+    {% if website_list %}
+    <div class="row">
+        {% for website in website_list %}
+        <div class="col-lg-3 col-md-4 col-sm-6 portfolio-item">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h4 class="card-title">
+                        <a href="{% url 'webscraper:scrapesite_detail' website.id %}">{{ website.website_name }}</a>
+                    </h4>
+                    <p class="card-text">Publications : {{ author.publication_set.count }}</p>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    {% endif %}
+
+    <!-- /.row -->
+
+    <!-- Pagination -->
+    <!-- <ul class="pagination justify-content-center">
+        <li class="page-item">
+            <a class="page-link" href="#" aria-label="Previous">
+                <span aria-hidden="true">&laquo;</span>
+                <span class="sr-only">Previous</span>
+            </a>
+        </li>
+        <li class="page-item">
+            <a class="page-link" href="#">1</a>
+        </li>
+        <li class="page-item">
+            <a class="page-link" href="#">2</a>
+        </li>
+        <li class="page-item">
+            <a class="page-link" href="#">3</a>
+        </li>
+        <li class="page-item">
+            <a class="page-link" href="#" aria-label="Next">
+                <span aria-hidden="true">&raquo;</span>
+                <span class="sr-only">Next</span>
+            </a>
+        </li>
+    </ul> -->
+
+</div>
+<!-- /.container -->
+
+
+
+
+<script>
+    document.getElementById("nav-home").className += " active"
+</script>
+
+{% endblock %}

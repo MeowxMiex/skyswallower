@@ -1,0 +1,43 @@
+{% extends 'webscraper/base.html' %}
+
+{% block content %}
+<h1>{{ websitelist.0.website_name }}</h1>
+
+
+<table class='table'>
+    <thead>
+        <tr>
+            <th>
+                Author name
+            </th>
+            <th>
+                Author search string
+            </th>
+            <th>
+                Number of articles
+            </th>
+            <th>
+                Last searched
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for website in websitelist %}
+        <tr>
+            <td>
+                {{ website.website_author.author_name }}
+            </td>
+            <td>
+                {{ website.website_author_string }}
+            </td>
+            <td>
+                {{ website.website_numberhits}}
+            </td>
+            <td>
+                {{ website.website_lastcheck }}
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
