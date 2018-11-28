@@ -40,7 +40,6 @@ def scrape_researchgate(author):
         df = pd.DataFrame(data)
         df_main = df_main.append(df, ignore_index=True)
         time.sleep(1)
-    ws_db.website_numberhits = df_main.shape[0]
     ws_db.website_lastcheck = datetime.now()
     ws_db.save()
     return df_main

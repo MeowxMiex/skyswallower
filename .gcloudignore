@@ -17,6 +17,7 @@ management/
 migrations/
 .vscode/
 *.json
+scrape_function/
 
 # Python pycache:
 __pycache__/

@@ -80,10 +80,10 @@ WSGI_APPLICATION = 'skyswallower.wsgi.application'
 import pymysql  # noqa: 402
 pymysql.install_as_MySQLdb()
 with open('login.txt') as login_creds:
-    user_name = login_creds.readline
-    user_pwd = login_creds.readline
-    hostname = login_creds.readline
-    dbname = login_creds.readline
+    user_name = login_creds.readline().strip()
+    user_pwd = login_creds.readline().strip()
+    hostname = login_creds.readline().strip()
+    dbname = login_creds.readline().strip()
 # [START db_setup]
 if os.getenv('GAE_APPLICATION', None):
     # Running on production App Engine, so connect to Google Cloud SQL using
