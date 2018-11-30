@@ -1,8 +1,8 @@
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse, HttpResponseRedirect
 from django.urls import reverse
-from models import Author, Website
-from scrape_function.scrape_researchgate_module import scrape_researchgate
+from .models import Author, Website
+from .scrape_function.scrape_researchgate_module import scrape_researchgate
 from datetime import datetime
 # Create your views here.
 
