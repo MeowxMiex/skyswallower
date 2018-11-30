@@ -1,8 +1,8 @@
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse, HttpResponseRedirect
 from django.urls import reverse
-from .models import Author, Website
-from .scrape_function.scrape_researchgate_module import scrape_researchgate
+from models import Author, Website
+from scrape_function.scrape_researchgate_module import scrape_researchgate
 from datetime import datetime
 # Create your views here.
 
@@ -24,7 +24,8 @@ def index(request):
 
 def detail(request, author_id):
     author = Author.objects.get(pk=author_id)
-    return render(request, 'webscraper/detail.html', {'author': author})
+    publications = author.publication_set.all().order_by('-pub_date')
+    return render(request, 'webscraper/detail.html', {'author': author, 'publications': publications})
 
 
 def scrapesite_detail(request, website_id):
@@ -53,7 +54,7 @@ def update(request, author_id):
             this_pub.pub_authors.add(Author.objects.get(pk=author_id))
             this_pub.save()
     website_rg = this_author.website_set.get(website_name='Research Gate')
-    website_rg.website_numberhits = npubs +  website_rg.website_numberhits
+    website_rg.website_numberhits = npubs + website_rg.website_numberhits
     website_rg.save()
     # print(scrape_list)
     return HttpResponseRedirect(reverse('webscraper:detail', args=(author_id,)))

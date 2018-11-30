@@ -6,9 +6,37 @@
     {% csrf_token %}
     <input type="submit" value="Update">
 </form> -->
-<ul>
-    {% for publication in author.publication_set.all %}
-    <li>{{ publication.pub_name }}</li>
-    {% endfor %}
-</ul>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Publication Name
+            </th>
+            <th>
+                Publication date
+            </th>
+            <th>
+                Authors
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for publication in publications %}
+        <tr>
+            <td width="50%">
+                {{ publication.pub_name }}
+            </td>
+            <td width="25%">
+                {{ publication.pub_date|date:"M, Y" }}
+            </td>
+            <td width="25%" class="align-middle">
+                {% for eachauthor in publication.pub_authors.all %}
+                {{ eachauthor.author_name }}
+                {% endfor %}
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
 {% endblock %}
