@@ -2,10 +2,6 @@
 
 {% block content %}
 <h1>{{ author.author_name }}</h1>
-<!-- <form action="{% url 'webscraper:update' author.id %}" method="post">
-    {% csrf_token %}
-    <input type="submit" value="Update">
-</form> -->
 
 <table class="table">
     <thead>
@@ -25,7 +21,7 @@
         {% for publication in publications %}
         <tr>
             <td width="50%">
-                {{ publication.pub_name }}
+                <a href="{{ publication.pub_hyperlink }}" style="text-decoration:none;color: black">{{ publication.pub_name }} </a>
             </td>
             <td width="25%">
                 {{ publication.pub_date|date:"M, Y" }}
