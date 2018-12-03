@@ -21,7 +21,14 @@
         {% for publication in publications %}
         <tr>
             <td width="50%">
-                <a href="{{ publication.pub_hyperlink }}" style="text-decoration:none;color: black">{{ publication.pub_name }} </a>
+                <a data-toggle="collapse" href="#pub{{ publication.pk }}" style="text-decoration:none;color: black" aria-expanded="false" aria-controls="pub{{ publication.pk }}">
+                    {{ publication.pub_name }} 
+                </a>
+                <div class="collapse" id="pub{{ publication.pk}}">
+                    <div class="card card-body">
+                        {{ publication.pub_abstract }}
+                    </div>
+                </div>
             </td>
             <td width="25%">
                 {{ publication.pub_date|date:"M, Y" }}

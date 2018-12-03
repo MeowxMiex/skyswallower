@@ -20,6 +20,7 @@ class Publication(models.Model):
     pub_date = models.DateTimeField("Publication date")
     pub_hyperlink = models.CharField(max_length=1000)
     pub_articletype = models.CharField(max_length=200)
+    pub_abstract = models.TextField('Abstract')
 
     def __str__(self):
         return self.pub_name
