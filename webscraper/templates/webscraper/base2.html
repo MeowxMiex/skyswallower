@@ -1,0 +1,150 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>Sky Swallower</title>
+    <link rel="dns-prefetch" href="http://fonts.googleapis.com/">
+    <script src="{% static 'webscraper/wordpress/wp-emoji-release.min.js.download' %}" type="text/javascript" defer=""></script>
+    <style type="text/css">
+        img.wp-smiley,
+        img.emoji {
+            display: inline !important;
+            border: none !important;
+            box-shadow: none !important;
+            height: 1em !important;
+            width: 1em !important;
+            margin: 0 .07em !important;
+            vertical-align: -0.1em !important;
+            background: none !important;
+            padding: 0 !important;
+        }
+    </style>
+    <link rel="stylesheet" id="wp-masonry-maincss-css" href="{% static 'webscraper/wordpress/style.css' %}" type="text/css"
+        media="all">
+    <link rel="stylesheet" id="font-awesome-css" href="{% static 'webscraper/wordpress/font-awesome.min.css' %}" type="text/css"
+        media="all">
+    <link rel="stylesheet" id="wp-masonry-webfont-css" href="{% static 'webscraper/wordpress/css' %}" type="text/css"
+        media="all">
+    <script type="text/javascript" src="{% static 'webscraper/wordpress/jquery.js.download' %}"></script>
+    <script type="text/javascript" src="{% static 'webscraper/wordpress/jquery-migrate.min.js.download' %}"></script>
+    <meta name="generator" content="WordPress 4.9.8">
+    <style type="text/css" id="custom-background-css">
+        body.custom-background {
+            background-image: url("http://localhost/wordpress/wp-content/themes/wp-masonry/assets/images/background.png");
+            background-position: left top;
+            background-size: auto;
+            background-repeat: repeat;
+            background-attachment: fixed;
+        }
+    </style>
+    <style id="fit-vids-style">.fluid-width-video-wrapper{width:100%;position:relative;padding:0;}.fluid-width-video-wrapper iframe,.fluid-width-video-wrapper object,.fluid-width-video-wrapper embed {position:absolute;top:0;left:0;width:100%;height:100%;}</style>
+</head>
+
+<body class="home blog custom-background wp-masonry-animated wp-masonry-fadein wp-masonry-layout-full-width wp-masonry-header-full-width wp-masonry-no-bottom-widgets"
+    id="wp-masonry-site-body" itemscope="itemscope" itemtype="http://schema.org/WebPage">
+    <div class="wp-masonry-scroll-top" style="display: none;"></div>
+
+    <div class="wp-masonry-outer-wrapper">
+        <div class="wp-masonry-container" id="wp-masonry-header" itemscope="itemscope" itemtype="http://schema.org/WPHeader"
+            role="banner">
+            <div class="wp-masonry-head-content clearfix" id="wp-masonry-head-content">
+                <div class="wp-masonry-header-inside clearfix">
+                    <div id="wp-masonry-logo">
+                        <div class="site-branding">
+                            <h1 class="wp-masonry-site-title"><a href="http://localhost/wordpress/" rel="home">Sky
+                                    Swallower</a></h1>
+                            <p class="wp-masonry-site-description">For lazy people</p>
+                        </div>
+                    </div>
+                    <!--/#wp-masonry-logo -->
+                </div>
+            </div>
+            <!--/#wp-masonry-head-content -->
+        </div>
+        <!--/#wp-masonry-header -->
+    </div>
+
+    <div class="wp-masonry-outer-wrapper">
+        <div class="wp-masonry-container wp-masonry-primary-menu-container clearfix">
+            <div class="wp-masonry-primary-menu-container-inside clearfix">
+                <nav class="wp-masonry-nav-primary" id="wp-masonry-primary-navigation" itemscope="itemscope" itemtype="http://schema.org/SiteNavigationElement"
+                    role="navigation">
+                    <div class="wp-masonry-primary-responsive-menu-icon"></div>
+                    <ul id="wp-masonry-menu-primary-navigation" class="wp-masonry-nav-primary-menu wp-masonry-menu-primary wp-masonry-primary-responsive-menu">
+                        <li class="current_page_item"><a href="http://localhost/wordpress/">Home</a></li>
+                        <li class="page_item page-item-2"><a href="http://localhost/wordpress/index.php/sample-page/">Sample
+                                Page</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+
+    <div class="wp-masonry-outer-wrapper">
+        <div class="wp-masonry-top-social-bar">
+            <div class="wp-masonry-top-social-icons clearfix">
+                <a href="http://localhost/wordpress/#" title="Search" class="wp-masonry-social-icon-search">
+                    <i class="fa fa-search"></i>
+                </a>
+            </div>
+            <div id="wp-masonry-search-overlay-wrap" class="wp-masonry-search-overlay">
+                <span class="wp-masonry-search-closebtn" title="Close Search">×</span>
+                <div class="wp-masonry-search-overlay-content">
+                    <form role="search" method="get" class="wp-masonry-search-form" action="http://localhost/wordpress/">
+                        <label>
+                            <span class="screen-reader-text">Search for:</span>
+                            <input type="search" class="wp-masonry-search-field" placeholder="Search …" value="" name="s">
+                        </label>
+                        <input type="submit" class="wp-masonry-search-submit" value="Search">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="wp-masonry-outer-wrapper"></div>
+
+    <div class="wp-masonry-outer-wrapper">
+        <div class="wp-masonry-container clearfix" id="wp-masonry-wrapper">
+            <div class="wp-masonry-content-wrapper clearfix" id="wp-masonry-content-wrapper">
+                <div class="wp-masonry-main-wrapper clearfix" id="wp-masonry-main-wrapper" itemscope="itemscope"
+                    itemtype="http://schema.org/Blog" role="main">
+                    <div class="theiaStickySidebar">
+                        <div class="wp-masonry-main-wrapper-inside clearfix">
+
+                            {% block content %}
+                            {% endblock %}
+
+                        </div>
+                    </div>
+                </div><!-- /#wp-masonry-main-wrapper -->
+            </div>
+            <!--/#wp-masonry-content-wrapper -->
+        </div>
+        <!--/#wp-masonry-wrapper -->
+    </div>
+
+    <div class="wp-masonry-outer-wrapper"></div>
+
+    <div class="clearfix" id="wp-masonry-footer">
+        <div class="wp-masonry-foot-wrap wp-masonry-container">
+            <div class="wp-masonry-outer-wrapper">
+                <p class="wp-masonry-copyright">Copyright © 2018 Sky Swallower</p>
+                <p class="wp-masonry-credit"><a href="https://themesdna.com/">Design by ThemesDNA.com</a></p>
+            </div>
+        </div>
+        <!--/#wp-masonry-footer -->
+    </div>
+
+    <script type="text/javascript" src="{% static 'webscraper/wordpress/jquery.fitvids.min.js.download' %}"></script>
+    <script type="text/javascript" src="{% static 'webscraper/wordpress/imagesloaded.min.js.download' %}"></script>
+    <script type="text/javascript" src="{% static 'webscraper/wordpress/masonry.min.js.download' %}"></script>
+    <script type="text/javascript" src="{% static 'webscraper/wordpress/custom2.js' %}"></script>
+    <script type="text/javascript" src="{% static 'webscraper/wordpress/wp-embed.min.js.download' %}"></script>
+
+</body>
+
+</html>

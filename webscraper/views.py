@@ -18,7 +18,7 @@ def index(request):
     # end of hack
     context = {'author_list': author_list,
                'website_list': website_list}
-    return render(request, 'webscraper/index.html', context)
+    return render(request, 'webscraper/index2.html', context)
 
 
 def detail(request, author_id):

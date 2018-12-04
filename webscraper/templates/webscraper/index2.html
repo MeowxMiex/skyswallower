@@ -1,0 +1,117 @@
+{% extends 'webscraper/base2.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="wp-masonry-posts-wrapper" id="wp-masonry-posts-wrapper">
+    <h1 class="wp-masonry-posts-heading"><span>Authors</span></h1>
+    <div class="wp-masonry-posts-content">
+        <div class="wp-masonry-posts-container">
+            <div class="wp-masonry-posts">
+                <div class="wp-masonry-4-col-sizer"></div>
+                <div class="wp-masonry-4-col-gutter"></div>
+
+                {% if author_list %}
+                {% for author in author_list %}
+                <div class="wp-masonry-grid-post wp-masonry-4-col">
+                    <div class="wp-masonry-grid-post-inside">
+                        <div class="wp-masonry-grid-post-thumbnail">
+                            <a href="#" title="Link Title"><img src="{% static 'webscraper/images/author' %}/{{ author.author_name }}.jpg"
+                                    class="wp-masonry-grid-post-thumbnail-img"></a>
+                            <div class="wp-masonry-grid-post-footer">
+                                <span class="wp-masonry-grid-post-author wp-masonry-grid-post-meta">
+                                    Publications : {{ author.publication_set.count }}
+                                </span>
+                                <span class="wp-masonry-grid-post-date wp-masonry-grid-post-meta">
+                                    Last Updated: December 3, 2018
+                                </span>
+                                <!-- <span class="wp-masonry-grid-post-comment wp-masonry-grid-post-meta">
+                                    <a href="http://localhost/wordpress/index.php/2018/12/03/hello-world-2/#respond">
+                                        Leave a comment
+                                    </a>
+                                </span> -->
+                            </div>
+                            <div class="wp-masonry-grid-post-categories">
+                                <span class="screen-reader-text">Posted in </span>
+                                <a href="#" rel="category tag">
+                                    Synthetic Aperture Radar
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="wp-masonry-grid-post-details">
+                            <h3 class="wp-masonry-grid-post-title">
+                                <a href="{% url 'webscraper:detail' author.id %}" rel="bookmark">
+                                    {{ author.author_name}}
+                                </a>
+                            </h3>
+                        </div>
+
+                    </div>
+                </div>
+                {% endfor %}
+                {% endif %}
+
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="wp-masonry-posts-wrapper" id="wp-masonry-posts-wrapper">
+    <h1 class="wp-masonry-posts-heading"><span>Sources</span></h1>
+    <div class="wp-masonry-posts-content">
+        <div class="wp-masonry-posts-container">
+            <div class="wp-masonry-posts">
+                <div class="wp-masonry-4-col-sizer"></div>
+                <div class="wp-masonry-4-col-gutter"></div>
+
+                {% if website_list %}
+                {% for website in website_list %}
+                <div class="wp-masonry-grid-post wp-masonry-4-col">
+                    <div class="wp-masonry-grid-post-inside">
+                        <div class="wp-masonry-grid-post-thumbnail">
+                            <a href="#" title="Link Title"><img src="{% static 'webscraper/wordpress/no-image-4-4.jpg' %}"
+                                    class="wp-masonry-grid-post-thumbnail-img"></a>
+                            <div class="wp-masonry-grid-post-footer">
+                                <!-- <span class="wp-masonry-grid-post-author wp-masonry-grid-post-meta">
+                                    Publications : {{ author.publication_set.count }}
+                                </span> -->
+                                <span class="wp-masonry-grid-post-date wp-masonry-grid-post-meta">
+                                    Last Updated: December 3, 2018
+                                </span>
+                                <!-- <span class="wp-masonry-grid-post-comment wp-masonry-grid-post-meta">
+                                    <a href="http://localhost/wordpress/index.php/2018/12/03/hello-world-2/#respond">
+                                        Leave a comment
+                                    </a>
+                                </span> -->
+                            </div>
+                            <div class="wp-masonry-grid-post-categories">
+                                <span class="screen-reader-text">Posted in </span>
+                                <a href="#" rel="category tag">
+                                    Websites
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="wp-masonry-grid-post-details">
+                            <h3 class="wp-masonry-grid-post-title">
+                                <a href="{% url 'webscraper:scrapesite_detail' website.id %}">
+                                    {{ website.website_name}}
+                                </a>
+                            </h3>
+                        </div>
+
+                    </div>
+                </div>
+                {% endfor %}
+                {% endif %}
+
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+</div>
+{% endblock %}
